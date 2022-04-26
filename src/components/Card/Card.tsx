@@ -1,17 +1,28 @@
 import React from 'react';
 import styles from "./Card.module.css"
+import {iState} from "../../state/reducers/reducer"
 
-const Card = () => {
+const Card: React.FC<iState> = ({transactionsData}) => {
+
+    const dateConverter = (dateTime: String) => {
+        const date = new Date(String(dateTime))
+        return date.getHours() + ":" + date.getMinutes() + " , " + date.toLocaleDateString('fa-IR')
+    }
+
     return (
         <>
-            <div className="card-body">
-                <p className="card-title">18:28 , 1401/1/27</p>
-                <h6 className="card-text text-danger">خسارت</h6>
-                <p>شعبه تهران</p>
-                <div className={"d-flex justify-content-end"}>
-                    <p className={`${styles.position} ${styles.redColor}`}>120/000-</p>
-                </div>
-            </div>
+            {transactionsData.trip_financials && transactionsData.trip_financials.map(item =>
+                <div key={String(item.id)}
+                     className="card-body">
+                    <p className="card-title text-muted">
+                        {dateConverter(String(item.request_datetime))}
+                    </p>
+                    <h6 className="card-text text-danger">{item.driver}</h6>
+                    <p>{item.hub.title}</p>
+                    <div className={"d-flex justify-content-end"}>
+                        <p className={`${styles.position} ${styles.redColor}`}>{String(item.final_price)}</p>
+                    </div>
+                </div>)}
         </>
     );
 };

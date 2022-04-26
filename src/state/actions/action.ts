@@ -6,7 +6,6 @@ import {Action} from "../reducers/reducer"
 export const getData = (): any => async (dispatch: Dispatch<Action>) => {
     try {
         const json = await axios.get("data.json");
-        // console.log(json.data);
         dispatch({
             type: Transactions.LOAD_SUCCESS,
             payload: json.data,

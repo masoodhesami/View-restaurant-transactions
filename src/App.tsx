@@ -1,24 +1,15 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import Card from "./components/Card/Card";
 import CardHeader from "./components/Card/CardHeader";
 import Layout from "./components/Layout/Layout";
-import {useSelector, useDispatch} from "react-redux";
-import {getData} from "./state/actions/action";
-import {iState} from "./state/reducers/reducer"
+import RenderCards from "./components/RenderCards/RenderCards";
 
 function App() {
-    const data = useSelector((state: iState) => state.transactionsData);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getData());
-    }, []);
-    console.log(data)
 
     return (
         <Layout>
             <CardHeader>
-                <Card/>
+               <RenderCards/>
             </CardHeader>
         </Layout>
     );
