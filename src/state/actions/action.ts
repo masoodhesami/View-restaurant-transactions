@@ -14,7 +14,7 @@ export const getData = (): any => async (dispatch: Dispatch<Action>) => {
     } catch (e) {
         dispatch({
             type: Transactions.LOAD_SUCCESS,
-            payload: [],
+            payload: {},
         });
     }
 };
