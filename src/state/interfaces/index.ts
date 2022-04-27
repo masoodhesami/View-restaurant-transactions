@@ -1,5 +1,3 @@
-import Transactions from "../constants";
-
 export interface iState {
     transactionsData: {
         trip_financials: {
@@ -31,26 +29,21 @@ export interface iState {
         }[]
     }
 }
-
-const initialState = {
-    transactionsData: {}
-};
-
-export type Action = {
-    type: string,
-    payload: iState | {}
-}
-
-const reducer = (state: iState | {} = initialState, action: Action) => {
-    switch (action.type) {
-        case Transactions.LOAD_SUCCESS:
-            return {
-                ...state,
-                transactionsData: action.payload,
-            };
-        default:
-            return state;
+export interface iSortedState {
+    allSortData: {
+        allSortData: {
+            id: Number,
+            title: String,
+            datetime: String,
+            amount: Number,
+            driver: String,
+            description: null,
+            hub: {
+                id: Number,
+                title: String,
+            },
+            start_date: String,
+            end_date: String
+        }[]
     }
-};
-
-export default reducer;
+}

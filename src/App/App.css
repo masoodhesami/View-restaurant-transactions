@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Dirooz;
+    src: url("../assests/fonts/Dirooz.ttf") ;
+}
+body {
+    font-family: Dirooz !important;
+}
+
+html {
+    direction: rtl;
+}
+
+.card-body {
+    border-bottom: 3px solid #eee;
+}
+
+.card-body {
+    height: 140px;
+}

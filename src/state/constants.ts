@@ -1,5 +1,6 @@
-const Transactions = {
+export const Transactions = {
     LOAD_SUCCESS: "RECEIVE_USERS_DATA",
 };
-
-export default Transactions;
+export const AllSortData = {
+    Sort_SUCCESS: "RECEIVE_ARRAY_DATA",
+};

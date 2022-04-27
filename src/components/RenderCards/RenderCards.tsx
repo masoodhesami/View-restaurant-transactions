@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {iState} from "../../state/reducers/reducer"
+import {iSortedState} from "../../state/interfaces"
 import Card from "../Card/Card";
-import {getData} from "../../state/actions/action";
+import {getData} from "../../state/actions/getDataAction";
+import {setSortedData} from "../../state/actions/sortArrayAction";
 
 
 const RenderCards = () => {
     const [sortArray] = useState<any>([])
-    const data = useSelector((state: iState) => state.transactionsData);
+    const sortedData = useSelector((state:iSortedState) => state.allSortData)
     const dispatch = useDispatch();
     const gettingData = async () => {
         const trans_data = await dispatch(getData());
@@ -17,12 +18,9 @@ const RenderCards = () => {
             sortArrayMisc_expenses(trans_data.misc_expenses)
             sortArrayConcurrency_costs(trans_data.concurrency_costs)
             sortAllData(sortArray)
-            console.log(sortArray)
+            dispatch(setSortedData(sortArray))
         }
-
-
     }
-
     const sortArrayPayments = (trans_data: any) => {
         if (trans_data) {
             trans_data.sort(function (a: any, b: any) {
@@ -33,7 +31,7 @@ const RenderCards = () => {
             for (const element of trans_data) {
                 const object = {
                     id: -1,
-                    title: "",
+                    title: "بدون عنوان",
                     datetime: "",
                     amount: -1,
                     driver: "",
@@ -63,14 +61,14 @@ const RenderCards = () => {
             for (const element of trans_data) {
                 const object = {
                     id: -1,
-                    title: "",
+                    title: "بدون عنوان",
                     datetime: "",
                     amount: -1,
                     driver: "",
                     description: null,
                     hub: {
                         id: -1,
-                        title: ""
+                        title: "",
                     },
                     start_date: "",
                     end_date: ""
@@ -95,14 +93,14 @@ const RenderCards = () => {
             for (const element of trans_data) {
                 const object = {
                     id: -1,
-                    title: "",
+                    title: "بدون عنوان",
                     datetime: "",
                     amount: -1,
                     driver: "",
                     description: null,
                     hub: {
                         id: -1,
-                        title: ""
+                        title: "",
                     },
                     start_date: "",
                     end_date: ""
@@ -125,14 +123,14 @@ const RenderCards = () => {
             for (const element of trans_data) {
                 const object = {
                     id: -1,
-                    title: "",
+                    title: "بدون عنوان",
                     datetime: "",
                     amount: -1,
                     driver: "",
                     description: null,
                     hub: {
                         id: -1,
-                        title: ""
+                        title: "",
                     },
                     start_date: "",
                     end_date: ""
@@ -156,13 +154,12 @@ const RenderCards = () => {
         }
     }
 
-
     useEffect(() => {
         gettingData()
     }, []);
     return (
         <>
-            <Card transactionsData={data}/>
+            <Card allSortData={sortedData}/>
         </>
     );
 };

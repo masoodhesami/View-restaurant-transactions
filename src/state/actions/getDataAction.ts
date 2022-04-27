@@ -1,7 +1,7 @@
 import axios from "axios";
-import Transactions from "../constants";
+import {Transactions} from "../constants";
 import {Dispatch} from "redux";
-import {Action} from "../reducers/reducer"
+import {Action} from "../reducers/basicDataReducer"
 
 export const getData = (): any => async (dispatch: Dispatch<Action>) => {
     try {
