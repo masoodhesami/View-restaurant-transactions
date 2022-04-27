@@ -1,17 +1,9 @@
 import React from 'react';
 import styles from "./Card.module.css"
 import {iSortedState} from "../../state/interfaces"
+import dateConverter from "../../utils/dateConverter"
 
 const Card: React.FC<iSortedState> = ({allSortData}) => {
-
-    const dateConverter = (dateTime: String) => {
-        const date = new Date(String(dateTime))
-        return date.getHours() + ":" + date.getMinutes() + " , " + date.toLocaleDateString('fa-IR')
-    }
-
-    if (allSortData.allSortData.length > 0) {
-        allSortData.allSortData.map(item => console.log(item))
-    }
 
     return (
         <>
