@@ -9,7 +9,7 @@ const Layout = (props: iProps) => {
     return (
         <>
             <div className={"container"}>
-                <div className={"row mt-5"}>
+                <div className={"row mt-2"}>
                     <div className={"d-flex justify-content-center"}>
                         <div className={"col-9"}>
                             <div className={"mb-4"}>
