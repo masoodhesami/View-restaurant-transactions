@@ -7,11 +7,13 @@ import RenderCards from "./components/RenderCards/RenderCards";
 function App() {
 
     return (
-        <Layout>
-            <CardHeader>
-               <RenderCards/>
-            </CardHeader>
-        </Layout>
+        <>
+            <Layout>
+                <CardHeader>
+                    <RenderCards/>
+                </CardHeader>
+            </Layout>
+        </>
     );
 }
 

@@ -10,6 +10,7 @@ export const getData = (): any => async (dispatch: Dispatch<Action>) => {
             type: Transactions.LOAD_SUCCESS,
             payload: json.data,
         });
+        return json.data
     } catch (e) {
         dispatch({
             type: Transactions.LOAD_SUCCESS,

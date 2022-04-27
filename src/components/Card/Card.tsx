@@ -17,10 +17,10 @@ const Card: React.FC<iState> = ({transactionsData}) => {
                     <p className="card-title text-muted">
                         {dateConverter(String(item.request_datetime))}
                     </p>
-                    <h6 className="card-text text-danger">{item.driver}</h6>
+                    <h6 className="card-text text-success">{item.driver}</h6>
                     <p>{item.hub.title}</p>
                     <div className={"d-flex justify-content-end"}>
-                        <p className={`${styles.position} ${styles.redColor}`}>{String(item.final_price)}</p>
+                        <p className={`${styles.position} ${styles.greenColor}`}>{String(item.final_price)}</p>
                     </div>
                 </div>)}
         </>
