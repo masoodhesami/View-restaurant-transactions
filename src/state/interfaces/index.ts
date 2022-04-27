@@ -1,5 +1,6 @@
 export interface iState {
     transactionsData: {
+    transactionsData: {
         trip_financials: {
             id: Number,
             request_datetime: String,
@@ -28,7 +29,7 @@ export interface iState {
             end_date: String
         }[]
     }
-}
+}}
 export interface iSortedState {
     allSortData: {
         allSortData: {
