@@ -8,28 +8,34 @@ import {
 import {getData} from "../../state/actions/getDataAction";
 
 const Dropdown = () => {
+    useEffect(() => {
+        getPureData()
+    }, []);
     const [fetchedData, setFetchedData] = useState<any>([])
+    const [currentTitle, setCurrentTitle] = useState<String>("همه تراکنش ها")
     const dispatch = useDispatch();
     const getPureData = async () => {
         const trans_data = await dispatch(getData());
         setFetchedData(trans_data)
     }
-    useEffect(() => {
-        getPureData()
-    }, []);
-    const concurrencyHandler = () => {
+    const concurrencyHandler = (e: any) => {
+        setCurrentTitle(String(e.target.innerHTML))
         dispatch(setSortedData(sortArrayConcurrency_costs(fetchedData.concurrency_costs)))
     }
-    const paymentsHandler = () => {
+    const paymentsHandler = (e: any) => {
+        setCurrentTitle(String(e.target.innerHTML))
         dispatch(setSortedData(sortArrayPayments(fetchedData.payments)))
     }
-    const tripHandler = () => {
+    const tripHandler = (e: any) => {
+        setCurrentTitle(String(e.target.innerHTML))
         dispatch(setSortedData(sortArrayTrip_financials(fetchedData.trip_financials)))
     }
-    const miscHandler = () => {
+    const miscHandler = (e: any) => {
+        setCurrentTitle(String(e.target.innerHTML))
         dispatch(setSortedData(sortArrayMisc_expenses(fetchedData.misc_expenses)))
     }
-    const showAllHandler = () => {
+    const showAllHandler = (e: any) => {
+        setCurrentTitle(String(e.target.innerHTML))
         dispatch(setSortedData(sortAllData([
             ...sortArrayConcurrency_costs(fetchedData.concurrency_costs),
             ...sortArrayPayments(fetchedData.payments),
@@ -42,7 +48,7 @@ const Dropdown = () => {
             <div className="dropdown">
                 <button className="btn btn-info dropdown-toggle text-white" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    همه تراکنش ها
+                    {currentTitle}
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a onClick={concurrencyHandler} className="dropdown-item" href="#">هزینه خرید ظرفیت</a>
