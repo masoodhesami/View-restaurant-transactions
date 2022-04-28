@@ -12,7 +12,7 @@ const Layout = (props: iProps) => {
                 <div className={"row mt-2"}>
                     <div className={"d-flex justify-content-center"}>
                         <div className={"col-9"}>
-                            <div className={"mb-4"}>
+                            <div className={"mb-3"}>
                                 <Header/>
                             </div>
                             {props.children}
