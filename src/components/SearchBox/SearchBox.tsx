@@ -6,27 +6,25 @@ import {setSortedData} from "../../state/actions/sortArrayAction"
 
 const SearchBox = () => {
     const dispatch = useDispatch()
-    const [query, setQuery] = useState<string>("")
-    let [filteredArray] = useState<any>([])
     const sortedData = useSelector((state: iSortedState) => state.allSortData)
+    let [basicData] = useState<any>([...sortedData.allSortData])
     const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(event.target.value)
-    }
-    sortedData.allSortData.filter(item => {
-        if (query === "") {
-            return item;
-        } else if (item.driver.toLowerCase().includes(query.toLowerCase())) {
-            if (filteredArray.length < 2) {
-                filteredArray = [...filteredArray, item]
+        let filteredArray: any = []
+        basicData.filter((item: { driver: string; }) => {
+            if (event.target.value === "") {
+                return item;
+            } else if (item.driver.toLowerCase().includes(event.target.value.toLowerCase())) {
+                if (filteredArray.length < 2) {
+                    filteredArray.push(item)
+                }
+                return item;
             }
-            return item;
+        });
+        dispatch(setSortedData(filteredArray))
+        if (event.target.value.length < 1) {
+            dispatch(setSortedData(basicData))
         }
-    });
-    if (filteredArray.length === 0) {
-        filteredArray = [...sortedData.allSortData]
     }
-    console.log(filteredArray)
-
 
     return (
         <>
