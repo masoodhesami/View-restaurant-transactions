@@ -6,12 +6,12 @@ import {iSortedState} from "../interfaces"
 export const setSortedData = (sortedData: iSortedState | []): any => async (dispatch: Dispatch<Action>) => {
     try {
         dispatch({
-            type: AllSortData.Sort_SUCCESS,
+            type: AllSortData.SORT_SUCCESS,
             payload: sortedData,
         });
     } catch (e) {
         dispatch({
-            type: AllSortData.Sort_SUCCESS,
+            type: AllSortData.SORT_SUCCESS,
             payload: {},
         });
     }

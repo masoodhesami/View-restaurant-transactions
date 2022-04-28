@@ -13,7 +13,7 @@ export type Action = {
 
 const sortArrayReducer = (state: iSortedState | {} = initialState, action: Action) => {
     switch (action.type) {
-        case AllSortData.Sort_SUCCESS:
+        case AllSortData.SORT_SUCCESS:
             return {
                 ...state,
                 allSortData: action.payload,

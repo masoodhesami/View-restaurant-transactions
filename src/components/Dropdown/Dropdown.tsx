@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from "react-redux";
 import {setSortedData} from "../../state/actions/sortArrayAction";
+import {changeCurrentTitle} from "../../state/actions/changeCurrentTitleAction";
 import {
     sortAllData, sortArrayConcurrency_costs, sortArrayMisc_expenses,
     sortArrayPayments, sortArrayTrip_financials,
@@ -11,31 +12,36 @@ const Dropdown = () => {
     useEffect(() => {
         getPureData()
     }, []);
+    const dispatch = useDispatch();
     const [fetchedData, setFetchedData] = useState<any>([])
     const [currentTitle, setCurrentTitle] = useState<String>("همه تراکنش ها")
-    const dispatch = useDispatch();
     const getPureData = async () => {
         const trans_data = await dispatch(getData());
         setFetchedData(trans_data)
     }
     const concurrencyHandler = (e: any) => {
         setCurrentTitle(String(e.target.innerHTML))
+        dispatch(changeCurrentTitle(String(e.target.innerHTML)))
         dispatch(setSortedData(sortArrayConcurrency_costs(fetchedData.concurrency_costs)))
     }
     const paymentsHandler = (e: any) => {
         setCurrentTitle(String(e.target.innerHTML))
+        dispatch(changeCurrentTitle(String(e.target.innerHTML)))
         dispatch(setSortedData(sortArrayPayments(fetchedData.payments)))
     }
     const tripHandler = (e: any) => {
         setCurrentTitle(String(e.target.innerHTML))
+        dispatch(changeCurrentTitle(String(e.target.innerHTML)))
         dispatch(setSortedData(sortArrayTrip_financials(fetchedData.trip_financials)))
     }
     const miscHandler = (e: any) => {
         setCurrentTitle(String(e.target.innerHTML))
+        dispatch(changeCurrentTitle(String(e.target.innerHTML)))
         dispatch(setSortedData(sortArrayMisc_expenses(fetchedData.misc_expenses)))
     }
     const showAllHandler = (e: any) => {
         setCurrentTitle(String(e.target.innerHTML))
+        dispatch(changeCurrentTitle(String(e.target.innerHTML)))
         dispatch(setSortedData(sortAllData([
             ...sortArrayConcurrency_costs(fetchedData.concurrency_costs),
             ...sortArrayPayments(fetchedData.payments),

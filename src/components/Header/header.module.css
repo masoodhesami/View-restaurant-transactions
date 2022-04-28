@@ -1,6 +1,9 @@
 .position{
     position: relative;
-    top : 30px
+    top : 46px
+}
+.positionBtn{
+    position: relative;
 }
 .sticky {
     position: -webkit-sticky;
@@ -15,4 +18,14 @@
 .flexCenter{
     display: flex;
     justify-content: center;
+}
+@media screen and (max-width: 600px) {
+    .positionBtn{
+        position: relative;
+        top : -50px;
+    }
+    .position{
+        position: relative;
+        top : 85px
+    }
 }
