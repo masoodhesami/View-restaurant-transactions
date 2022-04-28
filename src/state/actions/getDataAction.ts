@@ -1,5 +1,5 @@
 import axios from "axios";
-import {Transactions} from "../constants";
+import {Transactions} from "../constanst/constants";
 import {Dispatch} from "redux";
 import {Action} from "../reducers/basicDataReducer"
 

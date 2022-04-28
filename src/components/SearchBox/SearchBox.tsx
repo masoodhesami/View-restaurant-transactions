@@ -30,7 +30,7 @@ const SearchBox = () => {
         <>
             <form className="form-inline my-lg-0">
                 <input className={`form-control mr-sm-2 ${styles.position}`} type="search"
-                       placeholder="جستجو نام کوریر ... " aria-label="Search"
+                       placeholder="جستجو نام کوریر ..." aria-label="Search"
                        onChange={changeHandler}
                 />
             </form>

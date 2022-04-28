@@ -1,4 +1,4 @@
-import {Transactions} from "../constants";
+import {Transactions} from "../constanst/constants";
 import {iState} from "../interfaces"
 
 

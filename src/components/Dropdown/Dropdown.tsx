@@ -57,12 +57,12 @@ const Dropdown = () => {
                     {currentTitle}
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a onClick={concurrencyHandler} className="dropdown-item" href="#">هزینه خرید ظرفیت</a>
-                    <a onClick={paymentsHandler} className="dropdown-item" href="#">هزینه شارژ حساب</a>
-                    <a onClick={tripHandler} className="dropdown-item" href="#">هزینه سفر</a>
-                    <a onClick={miscHandler} className="dropdown-item" href="#">هزینه متفرقه</a>
+                    <a data-testid="searchBox-item1" onClick={concurrencyHandler} className="dropdown-item" href="#">هزینه خرید ظرفیت</a>
+                    <a data-testid="searchBox-item2" onClick={paymentsHandler} className="dropdown-item" href="#">هزینه شارژ حساب</a>
+                    <a data-testid="searchBox-item3" onClick={tripHandler} className="dropdown-item" href="#">هزینه سفر</a>
+                    <a data-testid="searchBox-item4" onClick={miscHandler} className="dropdown-item" href="#">هزینه متفرقه</a>
                     <div className="dropdown-divider"></div>
-                    <a onClick={showAllHandler} className="dropdown-item" href="#">همه تراکنش ها</a>
+                    <a data-testid="searchBox-item5" onClick={showAllHandler} className="dropdown-item" href="#">همه تراکنش ها</a>
 
                 </div>
             </div>

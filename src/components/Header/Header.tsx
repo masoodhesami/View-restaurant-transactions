@@ -14,7 +14,7 @@ const Header = () => {
                 <div className={`col-md-3 col-12`}>
                     <HeaderTitle/>
                 </div>
-                <div className={"col-md-5 col-12"}>
+                <div data-testid={"searchBox-element"} className={"col-md-5 col-12"}>
                     {currentTitle.currentTitle === "هزینه سفر" &&
                         <div className={` ${styles.position}`}>
                             <SearchBox/>

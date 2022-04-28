@@ -1,4 +1,4 @@
-import {AllSortData} from "../constants";
+import {AllSortData} from "../constanst/constants";
 import {iSortedState} from "../interfaces"
 
 

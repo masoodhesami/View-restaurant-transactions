@@ -1,4 +1,4 @@
-import {AllSortData} from "../constants";
+import {AllSortData} from "../constanst/constants";
 import {Dispatch} from "redux";
 import {Action} from "../reducers/basicDataReducer"
 import {iSortedState} from "../interfaces"

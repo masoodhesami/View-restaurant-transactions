@@ -11,7 +11,7 @@ const Layout = (props: iProps) => {
             <div className={"container"}>
                 <div className={"row mt-2"}>
                     <div className={"d-flex justify-content-center"}>
-                        <div className={"col-9"}>
+                        <div data-testid="cards-element" className={"col-9"}>
                             <div className={"mb-3"}>
                                 <Header/>
                             </div>

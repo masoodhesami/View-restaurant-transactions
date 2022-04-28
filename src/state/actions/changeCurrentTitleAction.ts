@@ -1,4 +1,4 @@
-import {CurrentTitle} from "../constants";
+import {CurrentTitle} from "../constanst/constants";
 import {Dispatch} from "redux";
 import {Action} from "../reducers/changeCurrentTitleReducer"
 import {iTitleState} from "../interfaces"

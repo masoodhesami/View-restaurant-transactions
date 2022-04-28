@@ -1,4 +1,4 @@
-import {CurrentTitle} from "../constants"
+import {CurrentTitle} from "../constanst/constants"
 import {iTitleState} from "../interfaces"
 
 const initialState = {
